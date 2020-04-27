@@ -1,0 +1,29 @@
+body {
+	background-color: $white;
+	color: $black;
+	font-family: Arial, Verdana, sans-serif;
+}
+
+*:focus {
+	box-shadow: 0 0 7px $primary-colour, 0 0 3px $primary-colour;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: $dark-grey;
+		color: $white;
+	}
+	
+	*:focus {
+		box-shadow: 0 0 9px $primary-light, 0 0 6px $primary-light;
+	}
+}
+
+.accessible-hidden {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: auto
+}

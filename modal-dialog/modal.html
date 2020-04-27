@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Modal Dialog</title>
+<script src="./modal.js"></script>
+<link rel="stylesheet" href="./modal.css"/>
+
+</head>
+<body>
+
+<p>Some buttons that trigger the modal to open</p>
+
+<button class="open_modal btn">Open modal button 1</button>
+<button class="open_modal btn">Open modal button 2</button>
+<button class="open_modal btn">Open modal button 3</button>
+
+<div class="modal" id="modal">
+	<section class="modal-content" role="dialog" aria-labelledby="modal_heading" aria-describedby="modal_description">
+		<button class="close-modal cancel btn">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+				<path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
+			</svg>
+			<span class="accessible-hidden">Cancel</span>
+		</button>
+		
+		<h2 id="modal_heading">Modal Heading</h2>
+		<p id="modal_description">Modal description with further details</p>
+		
+		<button class="btn-primary btn" id="modal_accept">Accept</button>
+		<button class="close-modal btn">Cancel</button>
+	</section>
+</div>
+
+</body>
+</html>

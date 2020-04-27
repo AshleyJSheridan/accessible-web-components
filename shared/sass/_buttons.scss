@@ -1,0 +1,50 @@
+.btn {
+	background-color: $light-grey;
+	border: 2px solid $black;
+	color: $black;
+	font-size: 100%;
+	padding: .5em;
+	
+	&:hover {
+		background-color: $black;
+		color: $light-grey;
+	}
+	
+	&::-moz-focus-inner {
+		border: none;
+		outline: none;
+	}
+}
+
+.btn-primary {
+	background-color: $primary-colour;
+	color: $white;
+	
+	&:hover {
+		background-color: $white;
+		color: $primary-colour;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.btn {
+		border-color: $light-grey;
+		background-color: $medium-dark-grey;
+		color: $white;
+		
+		&:hover {
+			background-color: $black;
+			color: $light-grey;
+		}
+	}
+
+	.btn-primary {
+		background-color: $primary-colour;
+		color: $white;
+		
+		&:hover {
+			background-color: $white;
+			color: $primary-colour;
+		}
+	}
+}
