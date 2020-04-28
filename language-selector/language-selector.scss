@@ -1,0 +1,73 @@
+@import '../shared/sass/colours';
+@import '../shared/sass/layout';
+
+.language-selector {
+	align-items: center;
+	border: 1px solid $black;
+	display: flex;
+	position: relative;
+	width: 8em;
+	
+	&:after {
+		content: "";
+		display: block;
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="16" height="16" aria-hidden="true"><g transform="matrix(0.9,0,0,1,4.8,0)"><polygon points="48,64.3 80.5,31.8 15.5,31.8" fill="white"/></g></svg>');
+		filter: brightness(0);
+		height: 16px;
+		pointer-events: none;
+		position: absolute;
+		right: .25em;
+		width: 16px;
+	}
+	
+	svg {
+		fill: $black;
+		margin-left: .25em;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		svg {
+			fill: $white;
+		}
+	}
+	
+	select {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		border: none;
+		font-size: 100%;
+		margin-left: .25em;
+		padding: .25em;
+		width: 8em;
+		
+		&:-moz-focusring {
+			color: transparent;
+			text-shadow: 0 0 0 $black;
+		}
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		select {
+			background-color: $medium-dark-grey;
+			color: $white;
+			
+			&:-moz-focusring {
+				color: transparent;
+				text-shadow: 0 0 0 $white;
+			}
+		}
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.language-selector {
+		background-color: $medium-dark-grey;
+		border-color: $white;
+		color: $white;
+		
+		&:after {
+			filter: brightness(1);
+		}
+	}
+}
