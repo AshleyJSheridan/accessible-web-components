@@ -1,0 +1,16 @@
+.notification {
+	background-color: lighten($notification, 50%);
+	border: 2px solid $notification;
+	display: none;
+	padding: .5em;
+	margin-bottom: 1em;
+	
+	p {
+		margin: 0;
+	}
+	
+	&.error {
+		background-color: lighten($error, 40%);
+		border-color: $error;
+	}
+}

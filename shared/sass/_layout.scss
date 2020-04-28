@@ -1,11 +1,15 @@
+* {
+	box-sizing: border-box;
+	
+	&:focus {
+		box-shadow: 0 0 7px $primary-colour, 0 0 3px $primary-colour;
+	}
+}
+
 body {
 	background-color: $white;
 	color: $black;
 	font-family: Arial, Verdana, sans-serif;
-}
-
-*:focus {
-	box-shadow: 0 0 7px $primary-colour, 0 0 3px $primary-colour;
 }
 
 @media (prefers-color-scheme: dark) {

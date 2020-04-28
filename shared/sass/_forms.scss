@@ -1,0 +1,35 @@
+label {
+	display: block;
+	margin-bottom: .25em;
+}
+
+form {
+	border: 2px solid $dark-grey;
+	padding: 1em;	
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+	background-color: $white;
+	border: 2px solid $dark-grey;
+	color: $black;
+	font-size: 100%;
+	margin-bottom: .5em;
+	padding: .5em;
+	
+	&.invalid {
+		border-color: $error;
+		background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path stroke="null" fill="rgb(255,0,0)" d="m128.132818,32.021486a96.099614,96.064459 0 1 0 96.099614,96.064459a96.099614,96.064459 0 0 0 -96.099614,-96.064459zm55.524221,130.220711l-21.35547,21.347657l-34.168751,-34.156252l-34.168751,34.156252l-21.35547,-21.347657l34.168751,-34.156252l-34.168751,-34.156252l21.35547,-21.347657l34.168751,34.156252l34.168751,-34.156252l21.35547,21.347657l-34.168751,34.156252l34.168751,34.156252z"/></svg>');
+		background-position: top right;
+		background-repeat: no-repeat;
+		
+		&~ .error {
+			display: block;
+		}
+	}
+	
+	&:focus ~ .instructions {
+			display: block;
+	}
+}

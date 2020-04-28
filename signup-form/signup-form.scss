@@ -1,0 +1,22 @@
+@import '../shared/sass/colours';
+@import '../shared/sass/layout';
+@import '../shared/sass/buttons';
+@import '../shared/sass/forms';
+@import '../shared/sass/notifications';
+
+form.login-form {
+	width: 30em;
+	
+	h1 {
+		margin: 0 0 1em 0;
+	}
+	
+	input[type=text],
+	input[type=password],
+	input[type=email] {
+		width: 100%;
+		
+		
+	}
+}
+

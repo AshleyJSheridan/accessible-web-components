@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Language Selector</title>
+<script src="./signup-form.js"></script>
+<link rel="stylesheet" href="./signup-form.css"/>
+</head>
+<body>
+
+<form name="loginForm" id="loginForm" aria-labelledby="loginHeading" class="login-form" novalidate>
+	<h1 id="loginHeading">Create Account</h1>
+
+	<div class="field">
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name" required pattern="[A-Za-z]{2,}.*"/>
+		<div class="error notification" id="nameError">This name is invalid, it should be at least 2 letters long</div>
+	</div>
+	
+	<div class="field">
+		<label for="email">Email</label>
+		<input type="email" name="email" id="email" required/>
+		<div class="error notification" id="emailError">Your email is invalid, enter a valid email address</div>
+	</div>
+	
+	<div class="field">
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password" required pattern="^(((?=.*[A-Z])(?=.*[a-z])(?=.*\d))|((?=.*[A-Z])(?=.*[a-z])(?=.*[,\.\?!:;\$£#]))|((?=.*[A-Z])(?=.*\d)(?=.*[,\.\?!:;\$£#]))|((?=.*[a-z])(?=.*\d)(?=.*[,\.\?!:;\$£#]))).{8,100}$"/>
+		<div class="error notification" id="passwordError">Your password is invalid, it does not meet minimum requirements</div>
+		<div id="passwordRequirements" class="instructions notification">
+			<p>Your password must be at least 8 characters and have at least:</p>
+			<ul>
+				<li>One uppercase letter</li>
+				<li>One lowercase letter</li>
+				<li>One number</li>
+				<li>A punctuation symbol (,.?!:;$£#)</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="field">
+		<label for="confirmPassword">Confirm password</label>
+		<input type="password" name="password" id="confirmPassword" required/>
+		<div class="error notification" id="confirmPasswordError">Your passwords do not match</div>
+	</div>
+	
+	<button class="btn btn-primary" type="submit">Sign Up</button>
+</form>
+
+</body>
+</html>
