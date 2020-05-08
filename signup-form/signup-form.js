@@ -9,22 +9,74 @@ document.addEventListener('DOMContentLoaded', function() {
 		e.stopPropagation();
 		
 		formElements.forEach((formElement) => {
-			if(formElement.checkValidity()) {
-				formElement.setAttribute('aria-invalid', false);
-				formElement.classList.remove('invalid');
-			} else {
-				formElement.setAttribute('aria-invalid', true);
-				formElement.classList.add('invalid');
-			}
+			markFormElementValid(formElement);
 		});
 		
-		// extra validation on password confirmation field
-		if(passwordField.value == passwordConfirmField.value) {
-			passwordConfirmField.setAttribute('aria-invalid', false);
-			passwordConfirmField.classList.remove('invalid');
-		} else {
-			passwordConfirmField.setAttribute('aria-invalid', true);
-			passwordConfirmField.classList.add('invalid');
-		}
+		formElements.forEach((formElement) => {
+			if(!formElement.checkValidity()) {
+				markFormElementInvalid(formElement);
+			}
+			
+			// extra validation on password confirmation field
+			if(passwordField.value != passwordConfirmField.value) {
+				markFormElementInvalid(passwordConfirmField)
+			}
+		});
 	}, false);
+	
+	function markFormElementValid(formElement) {
+		formElement.setAttribute('aria-invalid', false);
+		formElement.classList.remove('invalid');
+
+		unlinkErrorFieldFromFormElement(formElement);
+	}
+	
+	function markFormElementInvalid(formElement) {
+		formElement.setAttribute('aria-invalid', true);
+		formElement.classList.add('invalid');
+
+		linkErrorFieldToFormField(formElement);
+	}
+	
+	function unlinkErrorFieldFromFormElement(formElement) {
+		let errorField = getErrorFieldForFormElement(formElement);
+		let existingAriaDescribedby = getExistingAriaDescribedbyValue(formElement);
+		
+		if(errorField == null || existingAriaDescribedby == '')
+			return;
+		
+		let replaceRegex = new RegExp('\\b' + errorField.id + '\\b');
+		let newAriaDescribedby = existingAriaDescribedby.replace(replaceRegex, '');
+		
+		formElement.setAttribute('aria-describedby', newAriaDescribedby);
+	}
+	
+	function linkErrorFieldToFormField(formElement) {
+		let errorField = getErrorFieldForFormElement(formElement);
+		let existingAriaDescribedby = getExistingAriaDescribedbyValue(formElement);
+		
+		if(errorField == null)
+			return;
+		
+		
+		formElement.setAttribute('aria-describedby', `${existingAriaDescribedby} ${errorField.id}`);
+	}
+	
+	function getErrorFieldForFormElement(formElement) {
+		let errorFields = formElement.parentNode.getElementsByClassName('error');
+		
+		if(errorFields.length)
+			return errorFields[0];
+		
+		return null;
+	}
+	
+	function getExistingAriaDescribedbyValue(formElement) {
+		let existingAriaDescribedby = formElement.getAttribute('aria-describedby');
+		
+		if(existingAriaDescribedby == null)
+			return '';
+		
+		return existingAriaDescribedby;
+	}
 }, false);

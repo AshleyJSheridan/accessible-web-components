@@ -30,6 +30,24 @@ input[type=password] {
 	}
 	
 	&:focus ~ .instructions {
-			display: block;
+		display: block;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		background-color: $medium-dark-grey;
+		border-color: $light-grey;
+		color: $white;	
+	}
+}
+
+select {
+	background-color: $white;
+	color: $black;
+	font-size: 100%;
+	padding: .25em;
+	
+	@media (prefers-color-scheme: dark) {
+		background-color: $medium-dark-grey;
+		color: $white;
 	}
 }

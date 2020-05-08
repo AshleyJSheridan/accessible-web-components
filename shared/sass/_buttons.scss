@@ -14,6 +14,17 @@
 		border: none;
 		outline: none;
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		border-color: $light-grey;
+		background-color: $medium-dark-grey;
+		color: $white;
+		
+		&:hover {
+			background-color: $black;
+			color: $light-grey;
+		}
+	}
 }
 
 .btn-primary {
@@ -24,21 +35,8 @@
 		background-color: $white;
 		color: $primary-colour;
 	}
-}
-
-@media (prefers-color-scheme: dark) {
-	.btn {
-		border-color: $light-grey;
-		background-color: $medium-dark-grey;
-		color: $white;
-		
-		&:hover {
-			background-color: $black;
-			color: $light-grey;
-		}
-	}
-
-	.btn-primary {
+	
+	@media (prefers-color-scheme: dark) {
 		background-color: $primary-colour;
 		color: $white;
 		

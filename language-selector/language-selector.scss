@@ -1,5 +1,6 @@
 @import '../shared/sass/colours';
 @import '../shared/sass/layout';
+@import '../shared/sass/forms';
 
 .language-selector {
 	align-items: center;
@@ -23,10 +24,8 @@
 	svg {
 		fill: $black;
 		margin-left: .25em;
-	}
-	
-	@media (prefers-color-scheme: dark) {
-		svg {
+		
+		@media (prefers-color-scheme: dark) {
 			fill: $white;
 		}
 	}
@@ -36,9 +35,7 @@
 		-webkit-appearance: none;
 		appearance: none;
 		border: none;
-		font-size: 100%;
 		margin-left: .25em;
-		padding: .25em;
 		width: 8em;
 		
 		&:-moz-focusring {
@@ -48,20 +45,13 @@
 	}
 	
 	@media (prefers-color-scheme: dark) {
-		select {
-			background-color: $medium-dark-grey;
-			color: $white;
-			
-			&:-moz-focusring {
-				color: transparent;
-				text-shadow: 0 0 0 $white;
-			}
+		select:-moz-focusring {
+			color: transparent;
+			text-shadow: 0 0 0 $white;
 		}
 	}
-}
-
-@media (prefers-color-scheme: dark) {
-	.language-selector {
+	
+	@media (prefers-color-scheme: dark) {
 		background-color: $medium-dark-grey;
 		border-color: $white;
 		color: $white;
@@ -71,3 +61,4 @@
 		}
 	}
 }
+

@@ -1,4 +1,4 @@
-# Accessible Modal Dialog
+# Accessible Language Selector
 
 * Contrasting colours for select element and graphical attributes
 * Explicit fill set on SVG used as graphic for button, with colour change on hover via CSS
