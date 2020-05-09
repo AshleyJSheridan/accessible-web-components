@@ -1,0 +1,62 @@
+@import '../shared/sass/colours';
+@import '../shared/sass/layout';
+
+.feedback-section {
+	border: none;
+	padding: 0;
+}
+
+.feedback-star {
+	display: inline-block;
+	margin-bottom: 1em;
+	
+	.star {
+		border: 1px solid $black;
+		box-sizing: content-box;
+		display: inline-block;
+		height: 20px;
+		padding: 5px;
+		position: relative;
+		width: 20px;
+		
+		@media (prefers-color-scheme: dark) {
+			border: 1px solid $light-grey;
+		}
+		
+		&:hover {
+			background-color: $light-grey;
+			
+			@media (prefers-color-scheme: dark) {
+				background-color: $medium-dark-grey;
+			}
+		}
+	}
+	
+	.star:after {
+		content: "";
+		display: inline-block;
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" version="1.1" viewBox="0 0 240 228"><path d="M 46,228 120,0 194,228 0,87 h 240" fill="white"/></svg>');
+		background-size: contain;
+		filter: brightness(.75);
+		height: 20px;
+		pointer-events: none;
+		width: 20px;
+		
+		@media (prefers-color-scheme: dark) {
+			filter: brightness(.4);
+		}
+	}
+	
+	input[type=radio]:checked ~ .star:after,
+	input[type=radio].rated ~ .star:after {
+		filter: brightness(.35) sepia(1) hue-rotate(180deg) saturate(10);
+	}
+	
+	input[type=radio]:focus ~ .star {
+		box-shadow: 0 0 7px $primary-colour, 0 0 3px $primary-colour;
+		
+		@media (prefers-color-scheme: dark) {
+			box-shadow: 0 0 9px $primary-light, 0 0 6px $primary-light;
+		}
+	}
+}
